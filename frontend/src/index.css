@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+:root {
+	--canvas-top: #fff8e6;
+	--canvas-mid: #e8f7ff;
+	--canvas-bottom: #e7ecff;
+	--shape-a: rgba(14, 165, 233, 0.24);
+	--shape-b: rgba(20, 184, 166, 0.22);
+	--shape-c: rgba(249, 115, 22, 0.20);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: "IBM Plex Sans", sans-serif;
+	color: #0f172a;
+	background:
+		radial-gradient(circle at 10% 14%, var(--shape-a), transparent 34%),
+		radial-gradient(circle at 88% 18%, var(--shape-b), transparent 40%),
+		radial-gradient(circle at 72% 82%, var(--shape-c), transparent 38%),
+		linear-gradient(160deg, var(--canvas-top), var(--canvas-mid) 48%, var(--canvas-bottom));
+}
+
+h1,
+h2,
+h3 {
+	font-family: "Sora", sans-serif;
+}
+
