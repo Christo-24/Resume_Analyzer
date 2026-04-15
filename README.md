@@ -97,6 +97,44 @@ Frontend URL:
 
 - http://localhost:5173
 
+## Deploy Configuration (Render Backend + Vercel Frontend)
+
+Production URLs:
+
+- Frontend: https://resume-analyzer-ovzh.vercel.app
+- Backend: https://resume-analyzer-h3h6.onrender.com
+
+Set these backend environment variables on Render:
+
+```env
+DJANGO_ALLOWED_HOSTS=resume-analyzer-h3h6.onrender.com
+CORS_ALLOW_ALL_ORIGINS=False
+CORS_ALLOWED_ORIGINS=https://resume-analyzer-ovzh.vercel.app
+CSRF_TRUSTED_ORIGINS=https://resume-analyzer-ovzh.vercel.app
+```
+
+Set this frontend environment variable on Vercel:
+
+```env
+VITE_API_BASE_URL=https://resume-analyzer-h3h6.onrender.com
+```
+
+For local frontend development while keeping production values, create `frontend/.env.local`:
+
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000
+```
+
+Notes:
+
+- Redeploy backend after changing Render environment variables.
+- Rebuild/redeploy frontend after changing Vite environment variables.
+- In Windows PowerShell 5.1, generate requirements with UTF-8 to avoid pip parsing issues:
+
+```powershell
+pip freeze | Out-File -FilePath backend/requirements.txt -Encoding utf8
+```
+
 ## Pre-Push Checklist
 
 Before pushing to GitHub:
